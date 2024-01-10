@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -24,9 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString('Access_Token');
     if (token != null) {
-      const Center(
-        child: Text("Home"),
-      );
+      Get.offNamed(AppRoutes.search);
     } else {
       Get.offNamed(AppRoutes.auth);
     }
