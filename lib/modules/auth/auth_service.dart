@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:car_marketplace_mobile/modules/auth/models/auth_response_model.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +14,7 @@ class AuthService extends GetConnect {
       var res = await post(
           'auth/login', {'username': username, 'password': password});
 
+      log(res.body.toString());
       if (res.status.isOk) {
         return AuthResponseModel.fromJson(res.body);
       } else {

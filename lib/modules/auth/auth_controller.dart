@@ -17,7 +17,7 @@ class AuthController extends GetxController {
       var result = await authService.signIn(username, password);
       SharedPreferences sharedPreferences =
           await SharedPreferences.getInstance();
-      sharedPreferences.setString('Access_Token', result.token!);
+      sharedPreferences.setString('Access_Token', result.token);
       return true;
     } catch (e) {
       log(e.toString());
@@ -30,7 +30,7 @@ class AuthController extends GetxController {
       var result = await authService.signUp(username, password);
       SharedPreferences sharedPreferences =
           await SharedPreferences.getInstance();
-      sharedPreferences.setString('Access_Token', result.token!);
+      sharedPreferences.setString('Access_Token', result.token);
       return true;
     } catch (e) {
       log(e.toString());

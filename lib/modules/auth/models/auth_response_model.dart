@@ -1,8 +1,14 @@
-class AuthResponseModel {
-  final String? token;
+import '../../../core/models/user.dart';
 
-  AuthResponseModel._internal({this.token});
+class AuthResponseModel {
+  String token;
+  User user;
+
+  AuthResponseModel._internal({required this.token, required this.user});
 
   factory AuthResponseModel.fromJson(Map<String, dynamic> json) =>
-      AuthResponseModel._internal(token: json['access_token']);
+      AuthResponseModel._internal(
+        token: json['access_token'],
+        user: User.fromJson(json['user']),
+      );
 }
